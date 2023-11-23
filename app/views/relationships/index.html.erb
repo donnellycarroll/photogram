@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all relationships
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new relationship
+    </h2>
+
+    <form action="/insert_relationship" method="post">
+      <div>
+        <label for="sender_id_box">
+          Sender
+        </label>
+
+        <input type="text" id="sender_id_box" name="query_sender_id">
+      </div>
+
+      <div>
+        <label for="reciever_id_box">
+          Reciever
+        </label>
+
+        <input type="text" id="reciever_id_box" name="query_reciever_id">
+      </div>
+
+      <div>
+        <label for="request_status_box">
+          Request status
+        </label>
+
+        <input type="text" id="request_status_box" name="query_request_status">
+      </div>
+
+      <button>
+        Create relationship
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Sender
+        </th>
+
+        <th>
+          Reciever
+        </th>
+
+        <th>
+          Request status
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_relationships.each do |a_relationship| %>
+      <tr>
+        <td>
+          <%= a_relationship.id %>
+        </td>
+
+        <td>
+          <%= a_relationship.sender_id %>
+        </td>
+
+        <td>
+          <%= a_relationship.reciever_id %>
+        </td>
+
+        <td>
+          <%= a_relationship.request_status %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_relationship.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_relationship.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/relationships/<%= a_relationship.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

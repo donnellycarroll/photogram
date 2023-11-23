@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Relationship #<%= @the_relationship.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/relationships">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_relationship/<%= @the_relationship.id %>">
+          Delete relationship
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Sender
+      </dt>
+      <dd>
+        <%= @the_relationship.sender_id %>
+      </dd>
+
+      <dt>
+        Reciever
+      </dt>
+      <dd>
+        <%= @the_relationship.reciever_id %>
+      </dd>
+
+      <dt>
+        Request status
+      </dt>
+      <dd>
+        <%= @the_relationship.request_status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_relationship.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_relationship.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit relationship
+    </h2>
+
+    <form action="/modify_relationship/<%= @the_relationship.id %>"  method="post" >
+      <div>
+        <label for="sender_id_box">
+          Sender
+        </label>
+
+        <input type="text" id="sender_id_box" name="query_sender_id" value="<%= @the_relationship.sender_id %>">
+      </div>
+
+      <div>
+        <label for="reciever_id_box">
+          Reciever
+        </label>
+
+        <input type="text" id="reciever_id_box" name="query_reciever_id" value="<%= @the_relationship.reciever_id %>">
+      </div>
+
+      <div>
+        <label for="request_status_box">
+          Request status
+        </label>
+
+        <input type="text" id="request_status_box" name="query_request_status" value="<%= @the_relationship.request_status %>">
+      </div>
+
+      <button>
+        Update relationship
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
