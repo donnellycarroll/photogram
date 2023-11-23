@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "photos#index" #from devise:install
+
   # Routes for the Like resource:
 
   # CREATE
@@ -81,6 +83,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  root "photos#index"
   
 end
